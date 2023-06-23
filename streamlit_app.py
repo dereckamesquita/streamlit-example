@@ -20,8 +20,14 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
-a = bcrpscrapper(bcrp)
-st.dataframe(a)
+data = {'Nombre': ['Juan', 'María', 'Carlos'],
+        'Edad': [25, 30, 35],
+        'Ciudad': ['Lima', 'Bogotá', 'Santiago']}
+
+df = pd.DataFrame(data)
+
+# Mostrar el DataFrame en Streamlit
+st.dataframe(df)
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
