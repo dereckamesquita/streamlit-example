@@ -3,8 +3,13 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-!wget https://raw.githubusercontent.com/dereckamesquita/bcrp-scrapper/main/bcrp_scrapper.py
+import requests
 
+url = "https://raw.githubusercontent.com/dereckamesquita/bcrp-scrapper/main/bcrp_scrapper.py"
+response = requests.get(url)
+
+with open("bcrp_scrapper.py", "w") as file:
+    file.write(response.text)
 """
 # Welcome to Streamlit!
 
