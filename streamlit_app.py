@@ -27,6 +27,7 @@ data = {'Nombre': ['Juan', 'María', 'Carlos'],
 df = pd.DataFrame(data)
 
 # Mostrar el DataFrame en Streamlit
+df = bcrpscrapper(bcrp)
 st.dataframe(df)
 
 with st.echo(code_location='below'):
