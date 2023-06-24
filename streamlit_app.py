@@ -23,7 +23,8 @@ try:
     exec(file_content.read(), module.__dict__)
 
     # Importar las funciones o variables necesarias del módulo
-    from module import *
+    from bcrp_scrapper import *
+
 
     # Ahora puedes usar las funciones o variables importadas
     # ...
