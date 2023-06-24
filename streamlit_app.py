@@ -4,11 +4,33 @@ import math
 import pandas as pd
 import streamlit as st
 import requests
-url = "https://raw.githubusercontent.com/dereckamesquita/bcrp-scrapper/main/bcrp_scrapper.py"
-response = requests.get(url)
+from io import StringIO
+import sys
 
-with open("bcrp_scrapper.py", "w") as file:
-    file.write(response.text)
+# URL del archivo Python en GitHub
+url = "https://raw.githubusercontent.com/dereckamesquita/bcrp-scrapper/main/bcrp_scrapper.py"
+
+try:
+    # Descargar el archivo desde GitHub
+    response = requests.get(url)
+    response.raise_for_status()
+
+    # Crear un objeto StringIO para leer el contenido del archivo descargado
+    file_content = StringIO(response.text)
+
+    # Importar el archivo descargado como un módulo
+    module = type(sys)("bcrp_scrapper")
+    exec(file_content.read(), module.__dict__)
+
+    # Importar las funciones o variables necesarias del módulo
+    from module import *
+
+    # Ahora puedes usar las funciones o variables importadas
+    # ...
+    # ...
+except requests.exceptions.RequestException as e:
+    print(f"Error al descargar el archivo: {e}")
+
 from bcrp_scrapper import *
 
 """
