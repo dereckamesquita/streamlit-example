@@ -4,12 +4,13 @@ import math
 import pandas as pd
 import streamlit as st
 import requests
-
 url = "https://raw.githubusercontent.com/dereckamesquita/bcrp-scrapper/main/bcrp_scrapper.py"
 response = requests.get(url)
 
 with open("bcrp_scrapper.py", "w") as file:
     file.write(response.text)
+from bcrp_scrapper import *
+
 """
 # Welcome to Streamlit!
 
